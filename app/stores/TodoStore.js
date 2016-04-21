@@ -103,7 +103,7 @@ const TodoStore = new TodoStoreClass();
 
 AppDispatcher.register((action) => {
   let text;
-  console.log(action, TodoConstants);
+
   switch (action.actionType) {
     case TodoConstants.TODO_CREATE:
       text = action.text.trim();

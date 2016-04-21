@@ -4,31 +4,28 @@ import TodoTextInput from './TodoTextInput';
 import classNames from 'classname';
 
 class TodoItem extends React.Component {
-  constructor(props) {
-    super(props);
-    this._onToggleComplete = this._onToggleComplete.bind(this);
-    this._onDoubleClick = this._onDoubleClick.bind(this);
-    this._onSave = this._onSave.bind(this);
-    this._onDestroyClick = this._onDestroyClick.bind(this);
-    this.state = {
-      isEditing: false
-    };
+  static propTypes = {
+    todo: PropTypes.object.isRequired
   }
 
-  _onToggleComplete() {
+  state = {
+    isEditing: false
+  }
+
+  _onToggleComplete = () => {
     toggleComplete(this.props.todo);
   }
 
-  _onDoubleClick() {
+  _onDoubleClick = () => {
     this.setState({ isEditing: true });
   }
 
-  _onSave(text) {
+  _onSave = (text) => {
     updateText(this.props.todo.id, text);
     this.setState({ isEditing: false });
   }
 
-  _onDestroyClick() {
+  _onDestroyClick = () => {
     destroy(this.props.todo.id);
   }
 
@@ -71,9 +68,5 @@ class TodoItem extends React.Component {
     );
   }
 }
-
-TodoItem.propTypes = {
-  todo: PropTypes.object.isRequired
-};
 
 export default TodoItem;

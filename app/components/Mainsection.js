@@ -3,6 +3,11 @@ import { toggleCompleteAll } from '../actions/TodoActions';
 import TodoItem from './TodoItem';
 
 class MainSection extends React.Component {
+  static propTypes = {
+    allTodos: PropTypes.object.isRequired,
+    areAllComplete: PropTypes.bool.isRequired
+  }
+
   _onToggleCompleteAll() {
     toggleCompleteAll();
   }
@@ -35,10 +40,5 @@ class MainSection extends React.Component {
     );
   }
 }
-
-MainSection.propTypes = {
-  allTodos: PropTypes.object.isRequired,
-  areAllComplete: PropTypes.bool.isRequired
-};
 
 export default MainSection;

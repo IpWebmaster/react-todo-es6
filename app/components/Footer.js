@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { destroyCompleted } from '../actions/TodoActions';
 
-const ReactPropTypes = React.PropTypes;
-
 class Footer extends React.Component {
+  static propTypes = {
+    allTodos: PropTypes.object.isRequired
+  }
   /**
    * Event handler to delete all completed TODOs
    */
@@ -50,9 +51,5 @@ class Footer extends React.Component {
     );
   }
 }
-
-Footer.propTypes = {
-  allTodos: ReactPropTypes.object.isRequired
-};
 
 export default Footer;

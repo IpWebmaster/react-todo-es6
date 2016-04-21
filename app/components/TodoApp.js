@@ -5,13 +5,9 @@ import Header from './Header';
 import MainSection from './Mainsection';
 
 class TodoApp extends React.Component {
-  constructor(props) {
-    super(props);
-    this._onChange = this._onChange.bind(this);
-    this.state = {
-      allTodos: TodoStore.getAll(),
-      areAllComplete: TodoStore.areAllComplete()
-    };
+  state = {
+    allTodos: TodoStore.getAll(),
+    areAllComplete: TodoStore.areAllComplete()
   }
 
   componentDidMount() {
@@ -22,7 +18,7 @@ class TodoApp extends React.Component {
     TodoStore.removeChangeListener(this._onChange);
   }
 
-  _onChange() {
+  _onChange = () => {
     this.setState({
       allTodos: TodoStore.getAll(),
       areAllComplete: TodoStore.areAllComplete()
@@ -41,8 +37,6 @@ class TodoApp extends React.Component {
       </div>
     );
   }
-
-
 }
 
 export default TodoApp;
